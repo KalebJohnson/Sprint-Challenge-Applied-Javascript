@@ -18,7 +18,7 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
-function Card(imgUrl) {
+function Card(headLineText,imgUrl) {
     const 
       newCard = document.createElement("div"),
       headline = document.createElement("div"),
@@ -41,10 +41,9 @@ function Card(imgUrl) {
     newCard.appendChild(newImage);
     newCard.appendChild(authorSpan);
   
-    // add this functionality later
-    newCard.addEventListener("click", () => {
-      newCard.classList.toggle("selected");
-    });
+
+    headline.textContent = headLineText;
+
   
     return newCard;
   }
@@ -61,10 +60,10 @@ axios
   .catch(error => {
     console.log("The data was not returned", error);
   });
- //   response.data.articles.javascript.forEach(item => {
- //     const newDog = Card(item);
-  //    entryPoint.appendChild(newDog);
- //   });
- // })
+   response.data.articles.javascript.forEach(headLineText => {
+    const headline = Card(headLineText);
+   newCard.appendChild(headline);
+   });
+
 
  Card()

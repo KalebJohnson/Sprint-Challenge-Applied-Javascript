@@ -15,19 +15,28 @@
 </div>
 */
 function topicCard(item) {
+const
+    tab = document.createElement('div');
+    tab.classList.add('tab');
+    tab.textContent = item;
+
     const 
       tabs = document.createElement("div");
-      tabs.classList.add('topics');
-      tabs.textContent = item;
-  
+      tabs.classList.add('tabs');
+      
+
+      const
+      topics = document.createElement('div');
+      topics.classList.add('topics');
+        
     const 
       titleSpan = document.createElement("span")
       titleSpan.classList.add('title')
       titleSpan.textContent = "TRENDING TOPICS:";
       
-      tabs.appendChild(titleSpan)
-  
-    return tabs;
+      tabs.appendChild(topics);
+      topics.appendChild(titleSpan);
+    return tab;
   }
 
 
@@ -38,8 +47,8 @@ axios
   .then(response => {
     console.log(response);
     response.data.topics.forEach(item => {
-        const tabs = topicCard(item);
-        entryPoint.appendChild(tabs);
+        const tab = topicCard(item);
+        entryPoint.appendChild(tab);
       });
   })
   const entryPoint = document.querySelector(".topics");
