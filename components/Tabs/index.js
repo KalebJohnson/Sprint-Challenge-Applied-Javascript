@@ -45,9 +45,9 @@ const
 axios
   .get("https://lambda-times-backend.herokuapp.com/topics")
   .then(response => {
-    console.log(response);
-    response.data.topics.forEach(item => {
-        const tab = topicCard(item);
+    //console.log(response);
+    response.data.topics.forEach(response => {
+        const tab = topicCard(response);
         entryPoint.appendChild(tab);
       });
   })
