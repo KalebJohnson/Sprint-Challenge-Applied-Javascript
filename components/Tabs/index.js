@@ -41,7 +41,7 @@ const
 
 
 
-
+  const entryPoint = document.querySelector(".topics");
 axios
   .get("https://lambda-times-backend.herokuapp.com/topics")
   .then(response => {
@@ -51,5 +51,5 @@ axios
         entryPoint.appendChild(tab);
       });
   })
-  const entryPoint = document.querySelector(".topics");
+ 
   topicCard()
